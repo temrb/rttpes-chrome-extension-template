@@ -1,16 +1,14 @@
-/**
- * @type {import('prettier').Options}
- */
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
+
 export default {
-  printWidth: 80,
-  tabWidth: 2,
-  useTabs: false,
-  semi: false,
-  singleQuote: false,
-  trailingComma: "none",
+  plugins: ['prettier-plugin-organize-imports', 'prettier-plugin-tailwindcss'],
+  semi: true,
+  singleQuote: true,
+  jsxSingleQuote: true,
+  tabWidth: 4,
+  useTabs: true,
   bracketSpacing: true,
-  bracketSameLine: true,
-  plugins: ["@ianvs/prettier-plugin-sort-imports"],
+  trailingComma: 'all',
   importOrder: [
     "<BUILTIN_MODULES>", // Node.js built-in modules
     "<THIRD_PARTY_MODULES>", // Imports not matched by other special words or groups.
@@ -19,8 +17,8 @@ export default {
     "",
     "^@plasmohq/(.*)$",
     "",
-    "^~(.*)$",
+    "^@/(.*)$",
     "",
     "^[./]"
   ]
-}
+};
